@@ -18,13 +18,14 @@ public class Child {
     private LocalDate birthday;
     private boolean present;
 
-    @Column(name = "group_id")
+    @Column(name = "childgroup_id")
     private Long groupId;
 
-    public Child(String firstName, LocalDate birthday, boolean present) {
+    public Child(String firstName, LocalDate birthday, boolean present, Long groupId) {
         this.firstName = firstName;
         this.birthday = birthday;
         this.present = present;
+        this.groupId = groupId;
     }
 
     public Child() {

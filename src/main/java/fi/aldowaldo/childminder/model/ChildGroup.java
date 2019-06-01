@@ -8,13 +8,13 @@ public class ChildGroup {
 
     @Id
     @GeneratedValue
-    @Column(name = "group_id")
+    @Column(name = "childgroup_id")
     private Long id;
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "child_id", referencedColumnName = "group_id")
-    private List<Child> children;
+
+    @ManyToMany(mappedBy = "childGroups")
+    List<Teacher> teachers;
 
     public ChildGroup(String name) {
         this.name = name;
@@ -39,20 +39,11 @@ public class ChildGroup {
         this.name = name;
     }
 
-    public List<Child> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<Child> children) {
-        this.children = children;
-    }
-
     @Override
     public String toString() {
         return "ChildGroup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", children=" + children +
                 '}';
     }
 }

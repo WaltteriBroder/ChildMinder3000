@@ -21,6 +21,11 @@ public class ChildGroupService {
         childGroupRepository.save(childGroup);
     }
 
+
+    public void deleteChildGroup(Long id) {
+        childGroupRepository.deleteById(id);
+    }
+
     @Transactional
     public void addChildToChildGroup(AddChildToChildGroupDto dto) {
         childGroupRepository.addChildToChildGroup(dto.getGroupId(), dto.getChildId());

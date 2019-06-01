@@ -3,10 +3,7 @@ package fi.aldowaldo.childminder.controller;
 import fi.aldowaldo.childminder.model.Child;
 import fi.aldowaldo.childminder.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/child")
@@ -22,6 +19,11 @@ public class ChildController {
     @PostMapping("/")
     public void addChild(@RequestBody Child child){
         childService.addChild(child);
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public void removeChild(@PathVariable(value = "id") Long id) {
+        childService.removeChild(id);
     }
 
 }

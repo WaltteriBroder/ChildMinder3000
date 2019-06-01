@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface ChildGroupRepository extends CrudRepository<ChildGroup, Long> {
 
     @Modifying(clearAutomatically = true)
-    @Query(value = "UPDATE child SET group_id =? WHERE child_id = ?", nativeQuery = true)
+    @Query(value = "UPDATE child SET childgroup_id =? WHERE child_id = ?", nativeQuery = true)
     void addChildToChildGroup(Long groupId, Long childId);
 
 

@@ -19,4 +19,7 @@ public class ChildService {
         childRepository.save(child);
     }
 
+    public void removeChild(Long id) {
+        childRepository.deleteById(id);
+    }
 }
