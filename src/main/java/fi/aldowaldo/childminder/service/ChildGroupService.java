@@ -21,6 +21,9 @@ public class ChildGroupService {
         childGroupRepository.save(childGroup);
     }
 
+    public Iterable<ChildGroup> getAllChildGroups() {
+        return childGroupRepository.findAll();
+    }
 
     public void deleteChildGroup(Long id) {
         childGroupRepository.deleteById(id);

@@ -19,6 +19,10 @@ public class ChildService {
         childRepository.save(child);
     }
 
+    public Iterable<Child> getAllChilder() {
+        return childRepository.findAll();
+    }
+
     public void removeChild(Long id) {
         childRepository.deleteById(id);
     }

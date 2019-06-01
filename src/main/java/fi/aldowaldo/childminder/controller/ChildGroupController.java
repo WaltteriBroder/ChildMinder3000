@@ -23,6 +23,11 @@ public class ChildGroupController {
         childGroupService.addChildGroup(childGroup);
     }
 
+    @GetMapping("/all")
+    public Iterable<ChildGroup> getAllChildGroups(){
+        return childGroupService.getAllChildGroups();
+    }
+
     @DeleteMapping(value = "/delete/{id}")
     public void deleteChildGroup(@PathVariable(value = "id") Long id) {
         childGroupService.deleteChildGroup(id);

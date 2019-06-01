@@ -21,6 +21,11 @@ public class ChildController {
         childService.addChild(child);
     }
 
+    @GetMapping("/all")
+    public Iterable<Child> getAllChilder(){
+        return childService.getAllChilder();
+    }
+
     @DeleteMapping(value = "/delete/{id}")
     public void removeChild(@PathVariable(value = "id") Long id) {
         childService.removeChild(id);

@@ -20,6 +20,10 @@ public class TeacherService {
         teacherRepository.save(teacher);
     }
 
+    public Iterable<Teacher> getAllTeachers() {
+        return teacherRepository.findAll();
+    }
+
     public void removeTeacher(Long id) {
         teacherRepository.deleteById(id);
     }

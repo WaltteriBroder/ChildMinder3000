@@ -22,14 +22,19 @@ public class TeacherController {
         teacherService.addTeacher(teacher);
     }
 
-    @PostMapping("/assign")
-    public void assignAGroup(@RequestBody AssignChildGroupToTeacherDto dto){
-        teacherService.assignAGroup(dto);
+    @GetMapping("/all")
+    public Iterable<Teacher> getAllTeachers(){
+       return teacherService.getAllTeachers();
     }
 
     @DeleteMapping(value = "/delete/{id}")
     public void removeTeacher(@PathVariable(value = "id") Long id) {
         teacherService.removeTeacher(id);
+    }
+
+    @PostMapping("/assign")
+    public void assignAGroup(@RequestBody AssignChildGroupToTeacherDto dto){
+        teacherService.assignAGroup(dto);
     }
 
 }
