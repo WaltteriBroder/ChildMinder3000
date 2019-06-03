@@ -14,19 +14,12 @@ public class Child {
     @GeneratedValue
     @Column(name = "child_id")
     private Long id;
-    private String firstName;
     private LocalDate birthday;
+    private String firstName;
     private boolean present;
 
     @Column(name = "childgroup_id")
     private Long groupId;
-
-    public Child(String firstName, LocalDate birthday, boolean present, Long groupId) {
-        this.firstName = firstName;
-        this.birthday = birthday;
-        this.present = present;
-        this.groupId = groupId;
-    }
 
     public Child() {
     }
