@@ -1,25 +1,23 @@
 package fi.aldowaldo.childminder.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 public class Child {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     @Column(name = "child_id")
     private Long id;
     private LocalDate birthday;
-    private String firstName;
+    private String first_name;
     private boolean present;
 
-    @Column(name = "childgroup_id")
-    private Long groupId;
+    @ManyToOne
+    @JoinColumn(name = "childgroup_id")
+    private ChildGroup childGroup;
 
     public Child() {
     }
@@ -33,11 +31,11 @@ public class Child {
     }
 
     public String getFirstName() {
-        return firstName;
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String first_name) {
+        this.first_name = first_name;
     }
 
     public LocalDate getBirthday() {
@@ -56,19 +54,19 @@ public class Child {
         this.present = present;
     }
 
-    public Long getGroupId() {
-        return groupId;
+    public ChildGroup getChildGroup() {
+        return childGroup;
     }
 
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
+    public void setChildGroup(ChildGroup childGroup) {
+        this.childGroup = childGroup;
     }
 
     @Override
     public String toString() {
         return "Child{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
+                ", first_name='" + first_name + '\'' +
                 ", birthday=" + birthday +
                 ", present=" + present +
                 '}';

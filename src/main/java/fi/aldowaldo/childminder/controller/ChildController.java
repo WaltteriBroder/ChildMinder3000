@@ -1,5 +1,6 @@
 package fi.aldowaldo.childminder.controller;
 
+import fi.aldowaldo.childminder.dto.ChildArrivalDto;
 import fi.aldowaldo.childminder.model.Child;
 import fi.aldowaldo.childminder.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,18 @@ public class ChildController {
     }
 
     @GetMapping("/all")
-    public Iterable<Child> getAllChilder(){
-        return childService.getAllChilder();
+    public Iterable<Child> getAllChildren(){
+        return childService.getAllChildren();
+    }
+
+    @GetMapping("/all/present")
+    public Iterable<Child> getAllPresentChildren(){
+        return childService.getAllPresentChildren();
+    }
+
+    @GetMapping("/all/{date}")
+    public Iterable<ChildArrivalDto> getAllChildrenForTheDay(@PathVariable String date){
+        return childService.getAllChildrenForTheDay(date);
     }
 
     @DeleteMapping(value = "/delete/{id}")

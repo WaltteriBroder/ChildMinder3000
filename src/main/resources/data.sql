@@ -67,3 +67,29 @@ INSERT INTO teacher_childgroup (teacher_id, childgroup_id) VALUES (1009, 1001);
 INSERT INTO teacher_childgroup (teacher_id, childgroup_id) VALUES (1010, 1002);
 
 
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1001, '2019-09-23', 10001, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1002, '2019-09-24', 10001, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1003, '2019-09-25', 10001, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1004, '2019-09-26', 10001, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1005, '2019-09-27', 10001, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1006, '2019-09-23', 10002, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1007, '2019-09-24', 10002, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1008, '2019-09-25', 10002, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1009, '2019-09-26', 10002, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1010, '2019-09-27', 10002, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1011, '2019-09-23', 10003, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1012, '2019-09-24', 10003, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1013, '2019-09-25', 10003, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1014, '2019-09-26', 10003, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1015, '2019-09-27', 10003, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1016, '2019-09-23', 10004, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1017, '2019-09-24', 10004, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1018, '2019-09-25', 10004, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1019, '2019-09-26', 10004, '09:10:00', '13:10:00');;
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1020, '2019-09-27', 10004, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1021, '2019-09-23', 10005, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1022, '2019-09-24', 10005, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1023, '2019-09-25', 10005, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1024, '2019-09-26', 10005, '09:10:00', '13:10:00');
+INSERT INTO child_schedule (schedule_id, date, child_id, arrive, departure) VALUES (1025, '2019-09-27', 10005, '09:10:00', '13:10:00');
+

@@ -12,7 +12,6 @@ public class ChildGroup {
     private Long id;
     private String name;
 
-
     @ManyToMany(mappedBy = "childGroups")
     List<Teacher> teachers;
 
@@ -37,6 +36,14 @@ public class ChildGroup {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 
     @Override
