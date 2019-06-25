@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+
+  childminderdb:
+    image: postgres:9.6.9-alpine
+    container_name: childminderdb
+    ports:
+    - 5433:5432
+    networks:
+      - childminder-network
+    environment:
+      POSTGRES_DB: childminder3000
+      POSTGRES_USER: postgres
+      POSTGRE_USER: postgres
+
+  childminder:
+    image: waltteribroder/childminder
+    networks:
+      - childminder-network
+    ports:
+    - 9002:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://childminderdb:5432/childminder3000
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+networks:
+  childminder-network:
+    name: childminder-network
