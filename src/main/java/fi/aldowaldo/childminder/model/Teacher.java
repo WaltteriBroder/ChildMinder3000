@@ -2,6 +2,7 @@ package fi.aldowaldo.childminder.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Teacher {
@@ -48,6 +49,22 @@ public class Teacher {
 
     public void setChildGroups(List<ChildGroup> childGroups) {
         this.childGroups = childGroups;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Teacher)) return false;
+        Teacher teacher = (Teacher) o;
+        return Objects.equals(getId(), teacher.getId()) &&
+                Objects.equals(getName(), teacher.getName()) &&
+                Objects.equals(getChildGroups(), teacher.getChildGroups());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getName(), getChildGroups());
     }
 
     @Override

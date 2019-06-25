@@ -17,7 +17,7 @@ public class ChildController {
         this.childService = childService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public void addChild(@RequestBody Child child){
         childService.addChild(child);
     }

@@ -3,6 +3,7 @@ package fi.aldowaldo.childminder.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 public class Child {
@@ -60,6 +61,24 @@ public class Child {
 
     public void setChildGroup(ChildGroup childGroup) {
         this.childGroup = childGroup;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Child)) return false;
+        Child child = (Child) o;
+        return isPresent() == child.isPresent() &&
+                Objects.equals(getId(), child.getId()) &&
+                Objects.equals(getBirthday(), child.getBirthday()) &&
+                Objects.equals(first_name, child.first_name) &&
+                Objects.equals(getChildGroup(), child.getChildGroup());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getBirthday(), first_name, isPresent(), getChildGroup());
     }
 
     @Override

@@ -1,6 +1,5 @@
 package fi.aldowaldo.childminder.controller;
 
-import fi.aldowaldo.childminder.dto.ChildArrivalDto;
 import fi.aldowaldo.childminder.model.ChildSchedule;
 import fi.aldowaldo.childminder.service.ChildScheduleService;
 import org.springframework.web.bind.annotation.*;
@@ -9,11 +8,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/schedule")
-public class ChildScheduleContoller {
+public class ChildScheduleController {
 
     private final ChildScheduleService childScheduleService;
 
-    public ChildScheduleContoller(ChildScheduleService childScheduleService) {
+    public ChildScheduleController(ChildScheduleService childScheduleService) {
         this.childScheduleService = childScheduleService;
     }
 

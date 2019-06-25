@@ -20,7 +20,7 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public void addTeacher(@RequestBody Teacher teacher){
         teacherService.addTeacher(teacher);
     }

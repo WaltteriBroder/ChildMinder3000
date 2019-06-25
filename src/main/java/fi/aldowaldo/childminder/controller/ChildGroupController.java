@@ -18,7 +18,7 @@ public class ChildGroupController {
         this.childGroupService = childGroupService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public void addChildGroup(@RequestBody ChildGroup childGroup){
         childGroupService.addChildGroup(childGroup);
     }

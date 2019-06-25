@@ -6,6 +6,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 public class ChildSchedule {
@@ -61,5 +62,23 @@ public class ChildSchedule {
 
     public void setDeparture(Time departure) {
         this.departure = departure;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ChildSchedule)) return false;
+        ChildSchedule that = (ChildSchedule) o;
+        return Objects.equals(getId(), that.getId()) &&
+                Objects.equals(getDate(), that.getDate()) &&
+                Objects.equals(getChild(), that.getChild()) &&
+                Objects.equals(getArrive(), that.getArrive()) &&
+                Objects.equals(getDeparture(), that.getDeparture());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getDate(), getChild(), getArrive(), getDeparture());
     }
 }
