@@ -7,6 +7,14 @@ public class AddChildToChildGroupDto {
     private Long childId;
     private Long groupId;
 
+    public AddChildToChildGroupDto(Long childId, Long groupId) {
+        this.childId = childId;
+        this.groupId = groupId;
+    }
+
+    public AddChildToChildGroupDto() {
+    }
+
     public Long getChildId() {
         return childId;
     }

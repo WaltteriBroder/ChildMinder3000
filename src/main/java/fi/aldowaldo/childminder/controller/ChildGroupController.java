@@ -2,7 +2,7 @@ package fi.aldowaldo.childminder.controller;
 
 
 import fi.aldowaldo.childminder.dto.AddChildToChildGroupDto;
-import fi.aldowaldo.childminder.model.ChildGroup;
+import fi.aldowaldo.childminder.model.Childgroup;
 import fi.aldowaldo.childminder.service.ChildGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +19,12 @@ public class ChildGroupController {
     }
 
     @PostMapping("/add")
-    public void addChildGroup(@RequestBody ChildGroup childGroup){
-        childGroupService.addChildGroup(childGroup);
+    public void addChildGroup(@RequestBody Childgroup childgroup){
+        childGroupService.addChildGroup(childgroup);
     }
 
     @GetMapping("/all")
-    public Iterable<ChildGroup> getAllChildGroups(){
+    public Iterable<Childgroup> getAllChildGroups(){
         return childGroupService.getAllChildGroups();
     }
 

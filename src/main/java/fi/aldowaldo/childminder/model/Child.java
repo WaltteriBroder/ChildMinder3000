@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Child {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "child_id")
     private Long id;
     private LocalDate birthday;
@@ -18,7 +18,7 @@ public class Child {
 
     @ManyToOne
     @JoinColumn(name = "childgroup_id")
-    private ChildGroup childGroup;
+    private Childgroup childgroup;
 
     public Child() {
     }
@@ -55,12 +55,12 @@ public class Child {
         this.present = present;
     }
 
-    public ChildGroup getChildGroup() {
-        return childGroup;
+    public Childgroup getChildgroup() {
+        return childgroup;
     }
 
-    public void setChildGroup(ChildGroup childGroup) {
-        this.childGroup = childGroup;
+    public void setChildgroup(Childgroup childgroup) {
+        this.childgroup = childgroup;
     }
 
     @Override
@@ -72,13 +72,13 @@ public class Child {
                 Objects.equals(getId(), child.getId()) &&
                 Objects.equals(getBirthday(), child.getBirthday()) &&
                 Objects.equals(first_name, child.first_name) &&
-                Objects.equals(getChildGroup(), child.getChildGroup());
+                Objects.equals(getChildgroup(), child.getChildgroup());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getBirthday(), first_name, isPresent(), getChildGroup());
+        return Objects.hash(getId(), getBirthday(), first_name, isPresent(), getChildgroup());
     }
 
     @Override

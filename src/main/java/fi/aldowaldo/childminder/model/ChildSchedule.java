@@ -12,7 +12,7 @@ import java.util.Objects;
 public class ChildSchedule {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_id")
     private Long id;
     private LocalDate date;

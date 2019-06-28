@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Teacher {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "teacher_id")
     private Long id;
     private String name;
@@ -18,7 +18,7 @@ public class Teacher {
             name = "teacher_childgroup",
             joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "childgroup_id"))
-    private List<ChildGroup> childGroups;
+    private List<Childgroup> childgroups;
 
     public Teacher(String name) {
         this.name = name;
@@ -43,12 +43,12 @@ public class Teacher {
         this.name = name;
     }
 
-    public List<ChildGroup> getChildGroups() {
-        return childGroups;
+    public List<Childgroup> getChildgroups() {
+        return childgroups;
     }
 
-    public void setChildGroups(List<ChildGroup> childGroups) {
-        this.childGroups = childGroups;
+    public void setChildgroups(List<Childgroup> childgroups) {
+        this.childgroups = childgroups;
     }
 
     @Override
@@ -58,13 +58,13 @@ public class Teacher {
         Teacher teacher = (Teacher) o;
         return Objects.equals(getId(), teacher.getId()) &&
                 Objects.equals(getName(), teacher.getName()) &&
-                Objects.equals(getChildGroups(), teacher.getChildGroups());
+                Objects.equals(getChildgroups(), teacher.getChildgroups());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getName(), getChildGroups());
+        return Objects.hash(getId(), getName(), getChildgroups());
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Teacher {
         return "Teacher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", childGroups=" + childGroups +
+                ", childgroups=" + childgroups +
                 '}';
     }
 }

@@ -23,7 +23,6 @@ public class ChildService {
     }
 
     public Iterable<Child> getAllChildren() {
-        System.out.println("nakki!");
         return childRepository.findAll();
     }
 

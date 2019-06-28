@@ -1,6 +1,6 @@
 package fi.aldowaldo.childminder.controller;
 
-import fi.aldowaldo.childminder.dto.AssignChildGroupToTeacherDto;
+import fi.aldowaldo.childminder.dto.TeacherChildgroupDto;
 import fi.aldowaldo.childminder.model.Child;
 import fi.aldowaldo.childminder.model.Teacher;
 import fi.aldowaldo.childminder.service.TeacherService;
@@ -41,7 +41,7 @@ public class TeacherController {
     }
 
     @PostMapping("/assign")
-    public void assignAGroup(@RequestBody AssignChildGroupToTeacherDto dto){
+    public void assignAGroup(@RequestBody TeacherChildgroupDto dto){
         teacherService.assignAGroup(dto);
     }
 

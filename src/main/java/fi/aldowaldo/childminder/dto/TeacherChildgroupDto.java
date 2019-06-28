@@ -2,17 +2,17 @@ package fi.aldowaldo.childminder.dto;
 
 import java.util.Objects;
 
-public class AssignChildGroupToTeacherDto {
+public class TeacherChildgroupDto {
 
     private Long teacherId;
     private Long groupId;
 
-    public AssignChildGroupToTeacherDto(Long teacherId, Long groupId) {
+    public TeacherChildgroupDto(Long teacherId, Long groupId) {
         this.teacherId = teacherId;
         this.groupId = groupId;
     }
 
-    public AssignChildGroupToTeacherDto() {
+    public TeacherChildgroupDto() {
     }
 
     public Long getTeacherId() {
@@ -34,8 +34,8 @@ public class AssignChildGroupToTeacherDto {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AssignChildGroupToTeacherDto)) return false;
-        AssignChildGroupToTeacherDto dto = (AssignChildGroupToTeacherDto) o;
+        if (!(o instanceof TeacherChildgroupDto)) return false;
+        TeacherChildgroupDto dto = (TeacherChildgroupDto) o;
         return Objects.equals(getTeacherId(), dto.getTeacherId()) &&
                 Objects.equals(getGroupId(), dto.getGroupId());
     }
@@ -48,7 +48,7 @@ public class AssignChildGroupToTeacherDto {
 
     @Override
     public String toString() {
-        return "AssignChildGroupToTeacherDto{" +
+        return "TeacherChildgroupDto{" +
                 "teacherId=" + teacherId +
                 ", groupId=" + groupId +
                 '}';

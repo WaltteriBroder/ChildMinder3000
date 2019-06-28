@@ -5,22 +5,22 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class ChildGroup {
+public class Childgroup {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "childgroup_id")
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy = "childGroups")
+    @ManyToMany(mappedBy = "childgroups")
     List<Teacher> teachers;
 
-    public ChildGroup(String name) {
+    public Childgroup(String name) {
         this.name = name;
     }
 
-    public ChildGroup() {
+    public Childgroup() {
     }
 
     public Long getId() {
@@ -50,8 +50,8 @@ public class ChildGroup {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ChildGroup)) return false;
-        ChildGroup that = (ChildGroup) o;
+        if (!(o instanceof Childgroup)) return false;
+        Childgroup that = (Childgroup) o;
         return Objects.equals(getId(), that.getId()) &&
                 Objects.equals(getName(), that.getName()) &&
                 Objects.equals(getTeachers(), that.getTeachers());
@@ -65,7 +65,7 @@ public class ChildGroup {
 
     @Override
     public String toString() {
-        return "ChildGroup{" +
+        return "Childgroup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

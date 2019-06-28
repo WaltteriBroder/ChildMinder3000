@@ -1,7 +1,7 @@
 package fi.aldowaldo.childminder.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fi.aldowaldo.childminder.dto.AssignChildGroupToTeacherDto;
+import fi.aldowaldo.childminder.dto.TeacherChildgroupDto;
 import fi.aldowaldo.childminder.model.Teacher;
 import fi.aldowaldo.childminder.service.TeacherService;
 import org.junit.jupiter.api.Test;
@@ -82,7 +82,7 @@ public class TeacherControllerTest {
     @Test
     public void assignAGroup() throws Exception {
 
-        AssignChildGroupToTeacherDto dto = new AssignChildGroupToTeacherDto();
+        TeacherChildgroupDto dto = new TeacherChildgroupDto();
 
         mvc.perform(post("/teacher/assign")
                 .contentType(MediaType.APPLICATION_JSON)

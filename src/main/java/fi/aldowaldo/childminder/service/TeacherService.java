@@ -1,6 +1,6 @@
 package fi.aldowaldo.childminder.service;
 
-import fi.aldowaldo.childminder.dto.AssignChildGroupToTeacherDto;
+import fi.aldowaldo.childminder.dto.TeacherChildgroupDto;
 import fi.aldowaldo.childminder.model.Child;
 import fi.aldowaldo.childminder.model.Teacher;
 import fi.aldowaldo.childminder.repository.ChildRepository;
@@ -40,7 +40,7 @@ public class TeacherService {
     }
 
     @Transactional
-    public void assignAGroup(AssignChildGroupToTeacherDto dto) {
+    public void assignAGroup(TeacherChildgroupDto dto) {
         teacherRepository.assignAGroup(dto.getTeacherId(), dto.getGroupId());
     }
 
