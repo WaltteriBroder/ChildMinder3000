@@ -1,5 +1,3 @@
-SET search_path TO childminder;
-
 INSERT INTO childminder.childgroup (childgroup_id, name) VALUES (1001, 'aakkoset');
 INSERT INTO childminder.childgroup (childgroup_id, name) VALUES (1002, 'beekkoset');
 INSERT INTO childminder.childgroup (childgroup_id, name) VALUES (1003, 'ceekkoset');
