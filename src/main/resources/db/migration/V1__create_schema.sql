@@ -1,3 +1,9 @@
+CREATE SCHEMA IF NOT EXISTS childminder;
+
+set search_path to childminder;
+
+grant usage on schema childminder to aldojawaldo;
+
 CREATE TABLE childgroup (
 
     childgroup_id      BIGSERIAL PRIMARY KEY  NOT NULL,

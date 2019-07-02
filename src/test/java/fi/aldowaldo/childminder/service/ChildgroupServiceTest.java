@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.mockito.Mockito.times;
@@ -25,15 +23,10 @@ public class ChildgroupServiceTest {
     @Mock
     ChildGroupRepository childGroupRepository;
 
-    @Value("${kalja.nakki}")
-    private String nakki;
-
     @Test
     public void addChildGroup(){
         Childgroup childgroup = new Childgroup();
         childGroupService.addChildGroup(childgroup);
-        System.out.println("!!!!");
-        System.out.println(nakki);
         verify(childGroupRepository, times(1)).save(childgroup);
     }
 

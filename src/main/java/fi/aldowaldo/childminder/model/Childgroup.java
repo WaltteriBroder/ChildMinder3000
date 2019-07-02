@@ -1,5 +1,7 @@
 package fi.aldowaldo.childminder.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +15,7 @@ public class Childgroup {
     private Long id;
     private String name;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "childgroups")
     List<Teacher> teachers;
 
