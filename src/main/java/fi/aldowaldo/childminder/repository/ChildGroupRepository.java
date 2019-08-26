@@ -9,10 +9,13 @@ import org.springframework.data.repository.CrudRepository;
 public interface ChildGroupRepository extends CrudRepository<Childgroup, Long> {
 
     @Modifying(clearAutomatically = true)
-    @Query(value = "UPDATE child SET childgroup_id =? WHERE child_id = ?", nativeQuery = true)
+    @Query(value = "UPDATE childminder.child SET childgroup_id =? WHERE child_id = ?", nativeQuery = true)
     void addChildToChildGroup(Long groupId, Long childId);
 
 
+    @Modifying(clearAutomatically = true)
+    @Query(value = "UPDATE childminder.child SET childgroup_id = NULL WHERE child_id = ?", nativeQuery = true)
+    void removeChildFromChildGroup(Long childId);
 
 }
 

@@ -18,18 +18,22 @@ public class ChildScheduleController {
     }
 
     @PostMapping("/add")
-    public void addSchedule(@RequestBody ChildSchedule childSchedule){
+    public void addSchedule(@RequestBody ChildSchedule childSchedule) {
         childScheduleService.addSchedule(childSchedule);
     }
 
     @PostMapping("/add/many")
-    public void addSchduleForManyDays(@RequestBody List<ChildSchedule> childSchedules){
+    public void addSchduleForManyDays(@RequestBody List<ChildSchedule> childSchedules) {
         childScheduleService.addSchduleForManyDays(childSchedules);
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void removeSchedule(@PathVariable(value = "id") Long id) {
         childScheduleService.removeSchedule(id);
     }
 
+    @GetMapping("/child/{childId}")
+    public List<ChildSchedule> getSchedulesForChild(@PathVariable(value = "childId") Long childId) {
+        return childScheduleService.getSchedulesForChild(childId);
+    }
 }

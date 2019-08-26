@@ -27,4 +27,7 @@ public class ChildScheduleService {
         childScheduleRepository.deleteById(id);
     }
 
+    public List<ChildSchedule> getSchedulesForChild(Long childId) {
+        return childScheduleRepository.getSchedulesForChild(childId);
+    }
 }

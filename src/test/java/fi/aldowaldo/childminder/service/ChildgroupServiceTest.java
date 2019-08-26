@@ -1,6 +1,6 @@
 package fi.aldowaldo.childminder.service;
 
-import fi.aldowaldo.childminder.dto.AddChildToChildGroupDto;
+import fi.aldowaldo.childminder.dto.ChildAndChildGroupDto;
 import fi.aldowaldo.childminder.model.Childgroup;
 import fi.aldowaldo.childminder.repository.ChildGroupRepository;
 import org.junit.jupiter.api.Test;
@@ -44,7 +44,7 @@ public class ChildgroupServiceTest {
 
     @Test
     public void addChildToChildGroup(){
-        AddChildToChildGroupDto dto = new AddChildToChildGroupDto(1l,2l);
+        ChildAndChildGroupDto dto = new ChildAndChildGroupDto(1l,2l);
         childGroupService.addChildToChildGroup(dto);
         verify(childGroupRepository, times(1)).addChildToChildGroup(dto.getGroupId(), dto.getChildId());
     }

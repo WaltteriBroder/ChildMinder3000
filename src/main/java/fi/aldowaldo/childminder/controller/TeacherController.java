@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -34,6 +35,11 @@ public class TeacherController {
     @GetMapping("/{id}/children")
     public List<Child> getTeachersChildren(@PathVariable(value = "id") Long teacherId){
         return teacherService.getTeachersChildren(teacherId);
+    }
+
+    @GetMapping("/{id}/children/{date}")
+    public List<Optional<Child>> getTeachersChildrenForTheDay(@PathVariable(value = "id") Long teacherId, @PathVariable(value = "date") String date){
+        return teacherService.getTeachersChildrenForTheDay(teacherId, date);
     }
 
     @DeleteMapping(value = "/delete/{id}")

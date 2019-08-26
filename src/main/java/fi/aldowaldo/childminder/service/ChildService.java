@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 public class ChildService {
@@ -26,6 +27,11 @@ public class ChildService {
         return childRepository.findAll();
     }
 
+    public boolean isChildPresent(Long id) {
+        Optional<Child> child = childRepository.findById(id);
+        return child.isPresent();
+    }
+
     public Iterable<Child> getAllPresentChildren() {
         return childRepository.getAllPresentChildren();
     }
@@ -33,6 +39,18 @@ public class ChildService {
     public Iterable<ChildArrivalDto> getAllChildrenForTheDay(String dateAsString) {
         LocalDate date = LocalDate.parse(dateAsString);
         return childRepository.getAllChildrenForTheDay(date);
+    }
+
+    public void editChild(Child editedChild) {
+
+        Child child = childRepository.findById(editedChild.getId()).get();
+
+        child.setFirstName(editedChild.getFirstName());
+        child.setBirthday(editedChild.getBirthday());
+        child.setChildgroup(editedChild.getChildgroup());
+        child.setPresent(editedChild.isPresent());
+
+        childRepository.save(child);
     }
 
     public void removeChild(Long id) {

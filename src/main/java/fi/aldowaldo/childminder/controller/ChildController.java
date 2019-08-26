@@ -28,6 +28,11 @@ public class ChildController {
         return childService.getAllChildren();
     }
 
+    @GetMapping("/{id}")
+    public boolean isChildPresent(@PathVariable Long id){
+        return childService.isChildPresent(id);
+    }
+
     @GetMapping("/all/present")
     public Iterable<Child> getAllPresentChildren(){
         return childService.getAllPresentChildren();
@@ -36,6 +41,11 @@ public class ChildController {
     @GetMapping("/all/{date}")
     public Iterable<ChildArrivalDto> getAllChildrenForTheDay(@PathVariable String date){
         return childService.getAllChildrenForTheDay(date);
+    }
+
+    @PutMapping(value = "/edit")
+    public void editChild( @RequestBody Child child) {
+        childService.editChild(child);
     }
 
     @DeleteMapping(value = "/delete/{id}")

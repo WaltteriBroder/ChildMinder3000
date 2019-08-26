@@ -1,7 +1,7 @@
 package fi.aldowaldo.childminder.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fi.aldowaldo.childminder.dto.AddChildToChildGroupDto;
+import fi.aldowaldo.childminder.dto.ChildAndChildGroupDto;
 import fi.aldowaldo.childminder.model.Childgroup;
 import fi.aldowaldo.childminder.service.ChildGroupService;
 import org.junit.jupiter.api.Test;
@@ -69,7 +69,7 @@ public class ChildgroupControllerTest {
 
     @Test
     public void addChildToChildGroup() throws Exception {
-        AddChildToChildGroupDto dto = new AddChildToChildGroupDto();
+        ChildAndChildGroupDto dto = new ChildAndChildGroupDto();
 
         mvc.perform(post("/childgroup/addchild")
                 .contentType(MediaType.APPLICATION_JSON)

@@ -1,6 +1,6 @@
 package fi.aldowaldo.childminder.service;
 
-import fi.aldowaldo.childminder.dto.AddChildToChildGroupDto;
+import fi.aldowaldo.childminder.dto.ChildAndChildGroupDto;
 import fi.aldowaldo.childminder.model.Childgroup;
 import fi.aldowaldo.childminder.repository.ChildGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,12 @@ public class ChildGroupService {
     }
 
     @Transactional
-    public void addChildToChildGroup(AddChildToChildGroupDto dto) {
+    public void addChildToChildGroup(ChildAndChildGroupDto dto) {
         childGroupRepository.addChildToChildGroup(dto.getGroupId(), dto.getChildId());
+    }
+
+    @Transactional
+    public void removeChildFromChildGroup(Long childId) {
+        childGroupRepository.removeChildFromChildGroup(childId);
     }
 }
