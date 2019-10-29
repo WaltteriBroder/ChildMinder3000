@@ -27,9 +27,8 @@ public class ChildService {
         return childRepository.findAll();
     }
 
-    public boolean isChildPresent(Long id) {
-        Optional<Child> child = childRepository.findById(id);
-        return child.isPresent();
+    public Optional<Child> getChild(Long id) {
+        return childRepository.findById(id);
     }
 
     public Iterable<Child> getAllPresentChildren() {
@@ -38,6 +37,11 @@ public class ChildService {
 
     public Iterable<ChildArrivalDto> getAllChildrenForTheDay(String dateAsString) {
         LocalDate date = LocalDate.parse(dateAsString);
+        return childRepository.getAllChildrenForTheDay(date);
+    }
+
+    public Iterable<ChildArrivalDto> getAllChildrenForToday() {
+        LocalDate date = LocalDate.now();
         return childRepository.getAllChildrenForTheDay(date);
     }
 

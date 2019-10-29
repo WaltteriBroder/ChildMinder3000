@@ -19,10 +19,11 @@ CREATE TABLE child_schedule (
 
     schedule_id        BIGSERIAL PRIMARY KEY  NOT NULL,
     arrive             TIME,
-    date               DATE,
+    scheduledate       DATE,
     departure          TIME,
     child_id           BIGINT,
-    constraint fk_child_id foreign key(child_id) references child(child_id)
+    constraint fk_child_id foreign key(child_id) references child(child_id),
+    UNIQUE (scheduledate, child_id)
 );
 
 CREATE TABLE teacher (

@@ -1,19 +1,21 @@
 package fi.aldowaldo.childminder.repository;
 
-import fi.aldowaldo.childminder.dto.TeacherChildgroupDto;
 import fi.aldowaldo.childminder.model.Teacher;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 
 public interface TeacherRepository extends CrudRepository<Teacher, Long> {
 
     @Modifying
-    @Query(value = "INSERT INTO teacher_childgroup (teacher_id, childgroup_id) values (:teacherId, :childgroup_id)",
+    @Query(value = "INSERT INTO childminder.teacher_childgroup (teacher_id, childgroup_id) values (:teacherId, :childgroup_id)",
             nativeQuery = true)
     void assignAGroup(@Param("teacherId") Long teacherId, @Param("childgroup_id") Long childgroup_id);
 
+    @Modifying
+    @Query(value = "DELETE FROM childminder.teacher_childgroup WHERE teacher_id =? AND childgroup_id = ?",
+            nativeQuery = true)
+    void unassignAGroup(Long teacherId, Long childgroup_id);
 }

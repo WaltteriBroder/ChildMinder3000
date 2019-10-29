@@ -72,4 +72,8 @@ public class TeacherService {
         teacherRepository.assignAGroup(dto.getTeacherId(), dto.getGroupId());
     }
 
+    @Transactional
+    public void unassignAGroup(TeacherChildgroupDto dto) {
+        teacherRepository.unassignAGroup(dto.getTeacherId(), dto.getGroupId());
+    }
 }

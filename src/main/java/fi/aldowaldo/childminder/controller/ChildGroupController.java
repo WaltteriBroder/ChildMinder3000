@@ -29,6 +29,11 @@ public class ChildGroupController {
         return childGroupService.getAllChildGroups();
     }
 
+    @PutMapping("/edit/{id}")
+    public void editGroupName(@PathVariable(value = "id") Long id, @RequestBody String newGroupName){
+        childGroupService.editGroupName(id, newGroupName);
+    }
+
     @DeleteMapping(value = "/delete/{id}")
     public void deleteChildGroup(@PathVariable(value = "id") Long id) {
         childGroupService.deleteChildGroup(id);

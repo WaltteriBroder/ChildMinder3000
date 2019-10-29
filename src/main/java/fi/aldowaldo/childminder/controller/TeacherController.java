@@ -52,4 +52,9 @@ public class TeacherController {
         teacherService.assignAGroup(dto);
     }
 
+    @DeleteMapping("/unassign")
+    public void unassignAGroup(@RequestBody TeacherChildgroupDto dto){
+        teacherService.unassignAGroup(dto);
+    }
+
 }

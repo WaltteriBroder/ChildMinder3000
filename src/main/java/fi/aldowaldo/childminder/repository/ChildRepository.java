@@ -24,6 +24,7 @@ public interface ChildRepository extends JpaRepository<Child, Long> {
     Iterable<Child> getAllPresentChildren();
 
 
-    @Query("SELECT NEW fi.aldowaldo.childminder.dto.ChildArrivalDto(c.id, c.first_name, c.present, cs.arrive, cs.departure) FROM ChildSchedule cs INNER JOIN cs.child c WHERE cs.date = :#{#date}")
-    Iterable<ChildArrivalDto> getAllChildrenForTheDay(@Param("date") LocalDate date);
+    @Query("SELECT NEW fi.aldowaldo.childminder.dto.ChildArrivalDto(c.id, c.first_name, c.present, cs.arrive, cs.departure, cg.id, cg.name)" +
+            " FROM ChildSchedule cs INNER JOIN cs.child c INNER JOIN c.childgroup cg WHERE cs.scheduledate = :#{#scheduledate}")
+    Iterable<ChildArrivalDto> getAllChildrenForTheDay(@Param("scheduledate") LocalDate scheduledate);
 }

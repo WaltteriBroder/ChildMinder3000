@@ -25,6 +25,11 @@ public class ChildGroupService {
         return childGroupRepository.findAll();
     }
 
+    @Transactional
+    public void editGroupName(Long id, String newGroupName) {
+        childGroupRepository.editGroupName(newGroupName, id);
+    }
+
     public void deleteChildGroup(Long id) {
         childGroupRepository.deleteById(id);
     }

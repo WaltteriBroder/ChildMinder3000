@@ -3,6 +3,7 @@ package fi.aldowaldo.childminder.service;
 import fi.aldowaldo.childminder.model.ChildSchedule;
 import fi.aldowaldo.childminder.repository.ChildScheduleRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,8 +16,16 @@ public class ChildScheduleService {
         this.childScheduleRepository = childScheduleRepository;
     }
 
+    @Transactional
     public void addSchedule(ChildSchedule childSchedule) {
-        childScheduleRepository.save(childSchedule);
+
+        Long childIdOnDate = childScheduleRepository.getChildIdOnDate(childSchedule.getChild().getId(), childSchedule.getScheduledate());
+
+        if(childIdOnDate == 0){
+            childScheduleRepository.save(childSchedule);
+        } else {
+            childScheduleRepository.updateSchedule(childSchedule.getScheduledate(), childSchedule.getArrive(), childSchedule.getDeparture(), childSchedule.getId());
+        }
     }
 
     public void addSchduleForManyDays(List<ChildSchedule> childSchedules) {

@@ -15,7 +15,7 @@ public class ChildSchedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_id")
     private Long id;
-    private LocalDate date;
+    private LocalDate scheduledate;
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -32,12 +32,12 @@ public class ChildSchedule {
         this.id = id;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getScheduledate() {
+        return scheduledate;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setScheduledate(LocalDate scheduledate) {
+        this.scheduledate = scheduledate;
     }
 
     public Child getChild() {
@@ -70,7 +70,7 @@ public class ChildSchedule {
         if (!(o instanceof ChildSchedule)) return false;
         ChildSchedule that = (ChildSchedule) o;
         return Objects.equals(getId(), that.getId()) &&
-                Objects.equals(getDate(), that.getDate()) &&
+                Objects.equals(getScheduledate(), that.getScheduledate()) &&
                 Objects.equals(getChild(), that.getChild()) &&
                 Objects.equals(getArrive(), that.getArrive()) &&
                 Objects.equals(getDeparture(), that.getDeparture());
@@ -79,6 +79,17 @@ public class ChildSchedule {
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getDate(), getChild(), getArrive(), getDeparture());
+        return Objects.hash(getId(), getScheduledate(), getChild(), getArrive(), getDeparture());
+    }
+
+    @Override
+    public String toString() {
+        return "ChildSchedule{" +
+                "id=" + id +
+                ", scheduledate=" + scheduledate +
+                ", child=" + child +
+                ", arrive=" + arrive +
+                ", departure=" + departure +
+                '}';
     }
 }

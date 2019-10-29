@@ -6,6 +6,8 @@ import fi.aldowaldo.childminder.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/child")
@@ -29,8 +31,8 @@ public class ChildController {
     }
 
     @GetMapping("/{id}")
-    public boolean isChildPresent(@PathVariable Long id){
-        return childService.isChildPresent(id);
+    public Optional<Child> getChild(@PathVariable Long id){
+        return childService.getChild(id);
     }
 
     @GetMapping("/all/present")
@@ -41,6 +43,11 @@ public class ChildController {
     @GetMapping("/all/{date}")
     public Iterable<ChildArrivalDto> getAllChildrenForTheDay(@PathVariable String date){
         return childService.getAllChildrenForTheDay(date);
+    }
+
+    @GetMapping("/all/today")
+    public Iterable<ChildArrivalDto> getAllChildrenForToday(){
+        return childService.getAllChildrenForToday();
     }
 
     @PutMapping(value = "/edit")
