@@ -13,7 +13,7 @@ import java.util.List;
 public interface ChildScheduleRepository extends JpaRepository<ChildSchedule, Long> {
 
 
-    @Query(value = "SELECT child_id FROM childminder.child_schedule WHERE child_id =?1 AND scheduledate =?2 ",
+    @Query(value = "SELECT child_id FROM childminder.child_schedule WHERE child_id =?1 AND date =?2 ",
             nativeQuery = true)
     Long getChildIdOnDate(Long childId, LocalDate date);
 
@@ -23,7 +23,7 @@ public interface ChildScheduleRepository extends JpaRepository<ChildSchedule, Lo
     List<ChildSchedule> getSchedulesForChild(Long childId);
 
     @Modifying(clearAutomatically = true)
-    @Query(value = "UPDATE childminder.child_schedule SET scheduledate =?, arrive =?, departure=? WHERE schedule_id = ?", nativeQuery = true)
-    void updateSchedule(LocalDate scheduledate, Time arrive, Time departure, Long id);
+    @Query(value = "UPDATE childminder.child_schedule SET date =?, arrive =?, departure=? WHERE schedule_id = ?", nativeQuery = true)
+    void updateSchedule(LocalDate date, Time arrive, Time departure, Long id);
 
 }

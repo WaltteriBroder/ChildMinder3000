@@ -19,12 +19,12 @@ public class ChildScheduleService {
     @Transactional
     public void addSchedule(ChildSchedule childSchedule) {
 
-        Long childIdOnDate = childScheduleRepository.getChildIdOnDate(childSchedule.getChild().getId(), childSchedule.getScheduledate());
+        Long childIdOnDate = childScheduleRepository.getChildIdOnDate(childSchedule.getChild().getId(), childSchedule.getDate());
 
         if(childIdOnDate == 0){
             childScheduleRepository.save(childSchedule);
         } else {
-            childScheduleRepository.updateSchedule(childSchedule.getScheduledate(), childSchedule.getArrive(), childSchedule.getDeparture(), childSchedule.getId());
+            childScheduleRepository.updateSchedule(childSchedule.getDate(), childSchedule.getArrive(), childSchedule.getDeparture(), childSchedule.getId());
         }
     }
 

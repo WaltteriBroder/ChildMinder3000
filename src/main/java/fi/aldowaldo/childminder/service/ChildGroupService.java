@@ -1,7 +1,7 @@
 package fi.aldowaldo.childminder.service;
 
 import fi.aldowaldo.childminder.dto.ChildAndChildGroupDto;
-import fi.aldowaldo.childminder.model.Childgroup;
+import fi.aldowaldo.childminder.model.ChildGroup;
 import fi.aldowaldo.childminder.repository.ChildGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class ChildGroupService {
         this.childGroupRepository = childGroupRepository;
     }
 
-    public void addChildGroup(Childgroup childgroup){
-        childGroupRepository.save(childgroup);
+    public void addChildGroup(ChildGroup childGroup){
+        childGroupRepository.save(childGroup);
     }
 
-    public Iterable<Childgroup> getAllChildGroups() {
+    public Iterable<ChildGroup> getAllChildGroups() {
         return childGroupRepository.findAll();
     }
 

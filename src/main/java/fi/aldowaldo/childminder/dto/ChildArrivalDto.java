@@ -5,29 +5,29 @@ import java.util.Date;
 public class ChildArrivalDto {
 
     private Long id;
-    private String first_name;
+    private String firstName;
     private boolean present;
     private Date arrival;
     private Date departure;
-    private Long childgroupId;
-    private String childgroupName;
+    private Long childGroupId;
+    private String childGroupName;
 
-    public ChildArrivalDto(Long id, String first_name, boolean present, Date arrival, Date departure) {
+    public ChildArrivalDto(Long id, String firstName, boolean present, Date arrival, Date departure) {
         this.id = id;
-        this.first_name = first_name;
+        this.firstName = firstName;
         this.present = present;
         this.arrival = arrival;
         this.departure = departure;
     }
 
-    public ChildArrivalDto(Long id, String first_name, boolean present, Date arrival, Date departure, Long childgroupId, String childgroupName) {
+    public ChildArrivalDto(Long id, String firstName, boolean present, Date arrival, Date departure, Long childGroupId, String childGroupName) {
         this.id = id;
-        this.first_name = first_name;
+        this.firstName = firstName;
         this.present = present;
         this.arrival = arrival;
         this.departure = departure;
-        this.childgroupId = childgroupId;
-        this.childgroupName = childgroupName;
+        this.childGroupId = childGroupId;
+        this.childGroupName = childGroupName;
     }
 
     public ChildArrivalDto() {
@@ -42,11 +42,11 @@ public class ChildArrivalDto {
     }
 
     public String getFirstName() {
-        return first_name;
+        return firstName;
     }
 
     public void setFirstName(String name) {
-        this.first_name = name;
+        this.firstName = name;
     }
 
     public boolean isPresent() {
@@ -73,40 +73,32 @@ public class ChildArrivalDto {
         this.departure = departure;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public Long getChildGroupId() {
+        return childGroupId;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setChildGroupId(Long childGroupId) {
+        this.childGroupId = childGroupId;
     }
 
-    public Long getChildgroupId() {
-        return childgroupId;
+    public String getChildGroupName() {
+        return childGroupName;
     }
 
-    public void setChildgroupId(Long childgroupId) {
-        this.childgroupId = childgroupId;
-    }
-
-    public String getChildgroupName() {
-        return childgroupName;
-    }
-
-    public void setChildgroupName(String childgroupName) {
-        this.childgroupName = childgroupName;
+    public void setChildGroupName(String childGroupName) {
+        this.childGroupName = childGroupName;
     }
 
     @Override
     public String toString() {
         return "ChildArrivalDto{" +
                 "id=" + id +
-                ", first_name='" + first_name + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", present=" + present +
                 ", arrival=" + arrival +
                 ", departure=" + departure +
-//                ", childgroupId=" + childgroupId +
-//                ", childgroupName='" + childgroupName + '\'' +
+                ", childGroupId=" + childGroupId +
+                ", childGroupName='" + childGroupName + '\'' +
                 '}';
     }
 }

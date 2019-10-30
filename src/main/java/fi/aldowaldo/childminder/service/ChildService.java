@@ -51,7 +51,7 @@ public class ChildService {
 
         child.setFirstName(editedChild.getFirstName());
         child.setBirthday(editedChild.getBirthday());
-        child.setChildgroup(editedChild.getChildgroup());
+        child.setChildGroup(editedChild.getChildGroup());
         child.setPresent(editedChild.isPresent());
 
         childRepository.save(child);

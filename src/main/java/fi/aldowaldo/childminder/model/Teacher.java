@@ -11,14 +11,15 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "teacher_id")
     private Long id;
+
     private String name;
 
     @ManyToMany
     @JoinTable(
-            name = "teacher_childgroup",
+            name = "teacher_child_group",
             joinColumns = @JoinColumn(name = "teacher_id"),
-            inverseJoinColumns = @JoinColumn(name = "childgroup_id"))
-    private List<Childgroup> childgroups;
+            inverseJoinColumns = @JoinColumn(name = "child_group_id"))
+    private List<ChildGroup> childGroups;
 
     public Teacher(String name) {
         this.name = name;
@@ -43,12 +44,12 @@ public class Teacher {
         this.name = name;
     }
 
-    public List<Childgroup> getChildgroups() {
-        return childgroups;
+    public List<ChildGroup> getChildGroups() {
+        return childGroups;
     }
 
-    public void setChildgroups(List<Childgroup> childgroups) {
-        this.childgroups = childgroups;
+    public void setChildGroups(List<ChildGroup> childGroups) {
+        this.childGroups = childGroups;
     }
 
     @Override
@@ -58,13 +59,13 @@ public class Teacher {
         Teacher teacher = (Teacher) o;
         return Objects.equals(getId(), teacher.getId()) &&
                 Objects.equals(getName(), teacher.getName()) &&
-                Objects.equals(getChildgroups(), teacher.getChildgroups());
+                Objects.equals(getChildGroups(), teacher.getChildGroups());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getName(), getChildgroups());
+        return Objects.hash(getId(), getName(), getChildGroups());
     }
 
     @Override
@@ -72,7 +73,7 @@ public class Teacher {
         return "Teacher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", childgroups=" + childgroups +
+                ", childGroups=" + childGroups +
                 '}';
     }
 }

@@ -2,7 +2,7 @@ package fi.aldowaldo.childminder.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fi.aldowaldo.childminder.dto.ChildAndChildGroupDto;
-import fi.aldowaldo.childminder.model.Childgroup;
+import fi.aldowaldo.childminder.model.ChildGroup;
 import fi.aldowaldo.childminder.service.ChildGroupService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(ChildGroupController.class)
-public class ChildgroupControllerTest {
+public class ChildGroupControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -31,16 +31,16 @@ public class ChildgroupControllerTest {
 
     @Test
     public void addChildGroup() throws Exception {
-        Childgroup childgroup = new Childgroup();
+        ChildGroup childGroup = new ChildGroup();
 
-        mvc.perform(post("/childgroup/add")
+        mvc.perform(post("/childGroup/add")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .accept(MediaType.ALL)
-                .content(objectMapper.writeValueAsString(childgroup)))
+                .content(objectMapper.writeValueAsString(childGroup)))
                 .andExpect(status().isOk());
 
-        verify(childGroupService, times(1)).addChildGroup(childgroup);
+        verify(childGroupService, times(1)).addChildGroup(childGroup);
     }
 
     @Test

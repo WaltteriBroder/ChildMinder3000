@@ -1,7 +1,7 @@
 package fi.aldowaldo.childminder.service;
 
 import fi.aldowaldo.childminder.dto.ChildAndChildGroupDto;
-import fi.aldowaldo.childminder.model.Childgroup;
+import fi.aldowaldo.childminder.model.ChildGroup;
 import fi.aldowaldo.childminder.repository.ChildGroupRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration
-public class ChildgroupServiceTest {
+public class ChildGroupServiceTest {
 
     @InjectMocks
     ChildGroupService childGroupService;
@@ -25,9 +25,9 @@ public class ChildgroupServiceTest {
 
     @Test
     public void addChildGroup(){
-        Childgroup childgroup = new Childgroup();
-        childGroupService.addChildGroup(childgroup);
-        verify(childGroupRepository, times(1)).save(childgroup);
+        ChildGroup childGroup = new ChildGroup();
+        childGroupService.addChildGroup(childGroup);
+        verify(childGroupRepository, times(1)).save(childGroup);
     }
 
     @Test

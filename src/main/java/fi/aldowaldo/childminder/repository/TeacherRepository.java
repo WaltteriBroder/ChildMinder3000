@@ -10,12 +10,12 @@ import org.springframework.data.repository.query.Param;
 public interface TeacherRepository extends CrudRepository<Teacher, Long> {
 
     @Modifying
-    @Query(value = "INSERT INTO childminder.teacher_childgroup (teacher_id, childgroup_id) values (:teacherId, :childgroup_id)",
+    @Query(value = "INSERT INTO childminder.teacher_child_group (teacher_id, child_group_id) values (:teacherId, :child_group_id)",
             nativeQuery = true)
-    void assignAGroup(@Param("teacherId") Long teacherId, @Param("childgroup_id") Long childgroup_id);
+    void assignAGroup(@Param("teacherId") Long teacherId, @Param("child_group_id") Long child_group_id);
 
     @Modifying
-    @Query(value = "DELETE FROM childminder.teacher_childgroup WHERE teacher_id =? AND childgroup_id = ?",
+    @Query(value = "DELETE FROM childminder.teacher_child_group WHERE teacher_id =? AND child_group_id = ?",
             nativeQuery = true)
     void unassignAGroup(Long teacherId, Long childgroup_id);
 }

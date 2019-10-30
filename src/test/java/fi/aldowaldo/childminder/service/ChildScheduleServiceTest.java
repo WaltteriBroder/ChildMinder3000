@@ -12,7 +12,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -42,10 +41,10 @@ public class ChildScheduleServiceTest {
         ChildSchedule childSchedule = new ChildSchedule();
         childSchedule.setChild(new Child());
 
-        when(childScheduleRepository.getChildIdOnDate(childSchedule.getChild().getId(), childSchedule.getScheduledate())).thenReturn(1L);
+        when(childScheduleRepository.getChildIdOnDate(childSchedule.getChild().getId(), childSchedule.getDate())).thenReturn(1L);
 
         childScheduleService.addSchedule(childSchedule);
-        verify(childScheduleRepository, times(1)).updateSchedule(childSchedule.getScheduledate(), childSchedule.getArrive(), childSchedule.getDeparture(), childSchedule.getId());
+        verify(childScheduleRepository, times(1)).updateSchedule(childSchedule.getDate(), childSchedule.getArrive(), childSchedule.getDeparture(), childSchedule.getId());
     }
 
     @Test

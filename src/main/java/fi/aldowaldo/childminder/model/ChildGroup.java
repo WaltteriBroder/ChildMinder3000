@@ -7,23 +7,27 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Childgroup {
+public class ChildGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "childgroup_id")
+    @Column(name = "child_group_id")
     private Long id;
+
     private String name;
 
+    @OneToMany(mappedBy="childGroup")
+    private List<Child> children;
+
     @JsonIgnore
-    @ManyToMany(mappedBy = "childgroups")
+    @ManyToMany(mappedBy = "childGroups")
     List<Teacher> teachers;
 
-    public Childgroup(String name) {
+    public ChildGroup(String name) {
         this.name = name;
     }
 
-    public Childgroup() {
+    public ChildGroup() {
     }
 
     public Long getId() {
@@ -42,6 +46,14 @@ public class Childgroup {
         this.name = name;
     }
 
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Child> children) {
+        this.children = children;
+    }
+
     public List<Teacher> getTeachers() {
         return teachers;
     }
@@ -53,8 +65,8 @@ public class Childgroup {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Childgroup)) return false;
-        Childgroup that = (Childgroup) o;
+        if (!(o instanceof ChildGroup)) return false;
+        ChildGroup that = (ChildGroup) o;
         return Objects.equals(getId(), that.getId()) &&
                 Objects.equals(getName(), that.getName()) &&
                 Objects.equals(getTeachers(), that.getTeachers());
@@ -68,7 +80,7 @@ public class Childgroup {
 
     @Override
     public String toString() {
-        return "Childgroup{" +
+        return "ChildGroup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

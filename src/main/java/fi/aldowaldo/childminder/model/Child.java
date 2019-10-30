@@ -3,6 +3,7 @@ package fi.aldowaldo.childminder.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,13 +13,20 @@ public class Child {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "child_id")
     private Long id;
+
     private LocalDate birthday;
-    private String first_name;
+
+    @Column(name = "first_name")
+    private String firstName;
+
     private boolean present;
 
+    @OneToMany(mappedBy="child")
+    private List<ChildSchedule> schedules;
+
     @ManyToOne
-    @JoinColumn(name = "childgroup_id")
-    private Childgroup childgroup;
+    @JoinColumn(name = "child_group_id")
+    private ChildGroup childGroup;
 
     public Child() {
     }
@@ -32,11 +40,11 @@ public class Child {
     }
 
     public String getFirstName() {
-        return first_name;
+        return firstName;
     }
 
-    public void setFirstName(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public LocalDate getBirthday() {
@@ -55,12 +63,20 @@ public class Child {
         this.present = present;
     }
 
-    public Childgroup getChildgroup() {
-        return childgroup;
+    public List<ChildSchedule> getSchedules() {
+        return schedules;
     }
 
-    public void setChildgroup(Childgroup childgroup) {
-        this.childgroup = childgroup;
+    public void setSchedules(List<ChildSchedule> schedules) {
+        this.schedules = schedules;
+    }
+
+    public ChildGroup getChildGroup() {
+        return childGroup;
+    }
+
+    public void setChildGroup(ChildGroup childGroup) {
+        this.childGroup = childGroup;
     }
 
     @Override
@@ -71,21 +87,21 @@ public class Child {
         return isPresent() == child.isPresent() &&
                 Objects.equals(getId(), child.getId()) &&
                 Objects.equals(getBirthday(), child.getBirthday()) &&
-                Objects.equals(first_name, child.first_name) &&
-                Objects.equals(getChildgroup(), child.getChildgroup());
+                Objects.equals(firstName, child.firstName) &&
+                Objects.equals(getChildGroup(), child.getChildGroup());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getBirthday(), first_name, isPresent(), getChildgroup());
+        return Objects.hash(getId(), getBirthday(), firstName, isPresent(), getChildGroup());
     }
 
     @Override
     public String toString() {
         return "Child{" +
                 "id=" + id +
-                ", first_name='" + first_name + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", birthday=" + birthday +
                 ", present=" + present +
                 '}';
